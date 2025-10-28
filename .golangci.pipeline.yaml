@@ -4,19 +4,10 @@ run:
   timeout: 10m
   issues-exit-code: 1
   tests: true
-  issues:
-    exclude-files:
-      - \.pb\.go$
-      - \.pb\.gw\.go$
-    exclude-dirs:
-      - bin
-      - vendor
-      - var
-      - tmp
-      - .cache
 
 output:
-  formats: colored-line-number
+  formats:
+    - format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
 
@@ -44,6 +35,15 @@ linters:
 
 issues:
   exclude-use-default: false
+  exclude-files:
+    - \.pb\.go$
+    - \.pb\.gw\.go$
+  exclude-dirs:
+    - bin
+    - vendor
+    - var
+    - tmp
+    - .cache
   exclude:
     - G104 # _ instead of err checks
     - exported func .* returns unexported type .*, which can be annoying to use
